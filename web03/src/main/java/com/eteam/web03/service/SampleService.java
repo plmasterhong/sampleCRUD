@@ -19,7 +19,8 @@ import com.eteam.web03.vo.Sample;
 public class SampleService {
 	@Autowired private SampleMapper sampleMapper;
 	public List<Sample> getSampleList(){
-		return null;
+		List<Sample> sampleList = sampleMapper.selectSampleList();
+		return sampleList;
 	}
 	
 	public Sample getSampleOne(){

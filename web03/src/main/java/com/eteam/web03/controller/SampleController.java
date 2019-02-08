@@ -1,5 +1,7 @@
 package com.eteam.web03.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,9 +47,18 @@ public class SampleController {
 		System.out.println("입력처리결과: " + result + " (성공:1, 실패:0)");
 		return "redirect:/sampleList";
 	}
+	/*
+	 * @brief "http://localhost/sampleList" 주소분기(get방식)
+	 * 		   template폴더에 있는 sampleList.html forward 
+	 * 		   List<Sample>타입의 sampleList참조변수를 model객체를 통해 view로 포워드 전달
+	 * 		   reqeust.addAttribute의 방식과 동일
+	 * @return String(view이름)
+	 */
 	// 3. 목록
 	@GetMapping("/sampleList")
 	public String sampleList(Model model) {
+		List<Sample> sampleList = sampleService.getSampleList();
+		model.addAttribute("list", sampleList);
 		return "sampleList";
 	}
 	// 4. 삭제
