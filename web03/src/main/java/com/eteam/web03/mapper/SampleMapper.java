@@ -35,4 +35,11 @@ public interface SampleMapper {
 	 * @return int
 	 */
 	int deleteSample(int sampleId);
+	
+	/*
+	 * @param int sampleId
+	 * @brief smapleMapper.xml에서 구현 후 매핑 
+	 * @return Sample(vo객체 주소전달)
+	 */
+	Sample selectSampleOne(int sampleId);
 }

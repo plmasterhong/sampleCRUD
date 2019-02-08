@@ -18,13 +18,23 @@ import com.eteam.web03.vo.Sample;
 @Service
 public class SampleService {
 	@Autowired private SampleMapper sampleMapper;
+	/*
+	 * @param String sampleName
+	 * @brief smapleMapper.xml를 인터페이스 SampleMapper.java와 맵핑 후 selectSampleList()메서드 호출 
+	 * @return sampleList(List 객체 주소)
+	 */
 	public List<Sample> getSampleList(){
 		List<Sample> sampleList = sampleMapper.selectSampleList();
 		return sampleList;
 	}
-	
-	public Sample getSampleOne(){
-		return null;
+	/*
+	 * @param int sampleId
+	 * @brief smapleMapper.xml를 인터페이스 SampleMapper.java와 맵핑 후 selectSampleOne()메서드 호출 
+	 * @return sample(vo 객체 주소)
+	 */
+	public Sample getSampleOne(int sampleId){
+		Sample sample = sampleMapper.selectSampleOne(sampleId);
+		return sample;
 	}
 	/*
 	 * @param String sampleName

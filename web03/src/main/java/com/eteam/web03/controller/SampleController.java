@@ -72,10 +72,23 @@ public class SampleController {
 	@GetMapping("/sampleDelete")
 	public String smapleDelete(@RequestParam(value="sampleId") int sampleId) {
 		int result = sampleService.removeSample(sampleId);
-		System.out.println("입력처리결과: " + result + " (성공:1, 실패:0)");
+		System.out.println("삭제처리결과: " + result + " (성공:1, 실패:0)");
 		return "redirect:/sampleList";
 	}
+	/*
+	 * @param @RequestParam(value="sampleId") int sampleId
+	 * 		  int sampleName = Integer.parseInt(request.getParameter("sampleName")); 동일
+	 * @brief "http://localhost/modifySample" 주소분기(get방식) 
+	 * 		   Sample타입의 sampleList참조변수를 model객체를 통해 view로 포워드 전달
+	 * 		   reqeust.addAttribute의 방식과 동일
+	 * @return String(view이름)
+	 */
 	// 5. 수정 폼
-
+	@GetMapping("/modifySample")
+	public String modifySample(@RequestParam(value="sampleId") int sampleId, Model model) {
+		Sample sample = sampleService.getSampleOne(sampleId);
+		model.addAttribute("sample",sample);
+		return "modifySample";
+	}
 	// 6. 수정 액션
 }
