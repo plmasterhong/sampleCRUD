@@ -27,4 +27,12 @@ public interface SampleMapper {
 	 * @return List<Sample>
 	 */
 	List<Sample> selectSampleList();
+	
+	/*
+	 * @param int sampleId
+	 * @brief smapleMapper.xml에서 구현 후 매핑 
+	 * 		   입력처리(result) 성공:1 실패:0
+	 * @return int
+	 */
+	int deleteSample(int sampleId);
 }

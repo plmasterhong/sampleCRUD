@@ -61,9 +61,21 @@ public class SampleController {
 		model.addAttribute("list", sampleList);
 		return "sampleList";
 	}
+	/*
+	 * @param @RequestParam(value="sampleId") int sampleId
+	 * 		  int sampleName = Integer.parseInt(request.getParameter("sampleName")); 동일
+	 * @brief "http://localhost/sampleDelete" 주소분기(get방식) 
+	 * 		   삭제처리 후 view:sampleList로 redirect
+	 * @return String(view이름)
+	 */
 	// 4. 삭제
-	
+	@GetMapping("/sampleDelete")
+	public String smapleDelete(@RequestParam(value="sampleId") int sampleId) {
+		int result = sampleService.removeSample(sampleId);
+		System.out.println("입력처리결과: " + result + " (성공:1, 실패:0)");
+		return "redirect:/sampleList";
+	}
 	// 5. 수정 폼
-	
+
 	// 6. 수정 액션
 }

@@ -12,17 +12,17 @@
 			sample_id as sampleId,
 			sample_name as sampleName
 		FROM sample
-		WHERE sample_id=#{sampleId}
+		WHERE sample_id = #{sampleId}
 	</select>
 	<insert id="insertSample" parameterType="com.eteam.web03.vo.Sample">
 		INSERT INTO sample(sample_name) VALUES(#{sampleName})
 	</insert>
 	<delete id="deleteSample" parameterType="com.eteam.web03.vo.Sample">
-		DELETE FROM sample WHERE sample_id=#{sampleId}
+		DELETE FROM sample WHERE sample_id = #{sampleId}
 	</delete>
 	<update id="updateSample" parameterType="com.eteam.web03.vo.Sample">
 		UPDATE sample
-		SET sample_name=#{sampleName}
-		WHERE sample_id=#{sampleId}
+		SET sample_name = #{sampleName}
+		WHERE sample_id = #{sampleId}
 	</update>
 </mapper>

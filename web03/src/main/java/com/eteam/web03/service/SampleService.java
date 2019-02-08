@@ -36,9 +36,15 @@ public class SampleService {
 		int result = sampleMapper.insertSample(sampleName); 
 		return result;
 	}
-	
-	public int removeSample(Sample sample) {
-		return 0;	
+	/*
+	 * @param int sampleId
+	 * @brief smapleMapper.xml를 인터페이스 SampleMapper.java와 맵핑 후 deleteSample()메서드 호출 
+	 * 		   입력처리(result) 성공:1 실패:0
+	 * @return int(result)
+	 */
+	public int removeSample(int sampleId) {
+		int result = sampleMapper.deleteSample(sampleId);
+		return result;	
 	}
 	
 	public int modifySample(Sample sample) {
