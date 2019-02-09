@@ -90,5 +90,20 @@ public class SampleController {
 		model.addAttribute("sample",sample);
 		return "modifySample";
 	}
+	/*
+	 * @param @RequestParam(value="sampleId") int sampleId
+	 * 		  int sampleName = Integer.parseInt(request.getParameter("sampleName")); 동일
+	 * 		  @RequestParam(value="sampleName") String sampleName
+	 * 		  String sampleName = request.getParameter("sampleName"); 동일
+	 * @brief "http://localhost/modifySample" 주소분기(post방식) 
+	 * 		   삭제처리 후 view:sampleList로 redirect
+	 * @return String(view이름)
+	 */
 	// 6. 수정 액션
+	@PostMapping("/modifySample")
+	public String modifySample(@RequestParam(value="sampleId") int sampleId, @RequestParam(value="sampleName") String sampleName) {
+		int result = sampleService.modifySample(sampleId, sampleName);
+		System.out.println("수정처리결과: " + result + " (성공:1, 실패:0)");
+		return "redirect:/sampleList";
+	}
 }
